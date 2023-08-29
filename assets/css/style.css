@@ -3,7 +3,7 @@
 *{
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box; /*faz com que a largura e altura do elemento não sejam alteradas quando adicionamos padding e border*/
-    color: #FFF;
+    
     
 }
 html,
@@ -30,8 +30,9 @@ h1{
     display: flex;
     justify-content: center;
 }
-h2{font-size: .5rem;
-    color: #F6F8FC;
+h3{
+    font-size: 1.5rem;
+    color: #F6F8FC  ;
     margin-bottom: 1rem;
 }
 .textArea{
@@ -39,7 +40,7 @@ h2{font-size: .5rem;
     min-height: 30vh;
     border-radius: 10px;
     background-color: #ffffff71;
-    color: black;
+    color: #F6F8FC;
     
 }
 .textAreaGroup{
@@ -65,25 +66,36 @@ Button{
 }
 
 
-<!-- /*Responsivity*/ -->
+ /*Responsivity*/ 
 @media(max-width: 600px){
     .textAreaGroup{
         grid-template-columns: 1fr;
     }
 }
-@media screen and (max-width: 394px){
+@media screen and (max-width: 395px){
     .textAreaGroup{
         grid-template-columns: 1fr;
         max-width: 70vw;
         max-height: 80vh;
+        margin: 0;
+        padding: 0;
     }
     .textArea{
         max-width: 70vw;
-        min-height: 0.1vh;
+        min-height: 20vh;
         border-radius: 10px;
         background-color: #ffffff71;
-        color: black;
-    }    
+        padding: 0;
+        margin:0 ;
+    } 
+    h3{font-size: 1.5rem;
+        color: #F6F8FC;
+        margin: 0;
+    }
+    Button{
+        padding: .5rem 1rem;
+        margin: 1rem;
+    }  
 }
 
 

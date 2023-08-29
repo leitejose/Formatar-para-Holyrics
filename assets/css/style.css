@@ -4,17 +4,20 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box; /*faz com que a largura e altura do elemento não sejam alteradas quando adicionamos padding e border*/
     color: #FFF;
+    
 }
-
+html,
 body{
     width: 100vw; /*100% da largura da tela*/
     height: 100vh; /*100% da altura da tela*/
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 100vw 100vh  ;
+      animation: gradient 15s ease infinite;
 }
 .content{
     width: 100vw;
     height: 100vh; /*100% da altura da tela*/
-    padding: 1 rem;  /*rem baseiase no tamanho da fonte do elemento pai*/
-    width: 100vw; /*100% da largura da tela*/
+    padding:  1rem;  /*rem baseiase no tamanho da fonte do elemento pai*/
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,9 +35,8 @@ h2{font-size: .5rem;
     margin-bottom: 1rem;
 }
 .textArea{
-    max-width: 100vw;
+    max-width: 70vw;
     min-height: 30vh;
-    width: 100%;
     border-radius: 10px;
     background-color: #ffffff71;
     color: black;
@@ -72,5 +74,29 @@ Button{
 @media screen and (max-width: 394px){
     .textAreaGroup{
         grid-template-columns: 1fr;
+        max-width: 70vw;
+        max-height: 80vh;
+    }
+    .textArea{
+        max-width: 70vw;
+        min-height: 0.1vh;
+        border-radius: 10px;
+        background-color: #ffffff71;
+        color: black;
+    }    
+}
+
+
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }

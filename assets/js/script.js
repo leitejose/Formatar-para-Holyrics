@@ -12,8 +12,6 @@ function removeChords(line) {
     return line;
 }
 
-
-
 function interleaveLyrics(lyricsPt, lyricsEn) {
     let interleavedLyrics = [];
     let isLastLineEmpty = false; // Flag para acompanhar se a última linha foi vazia
@@ -27,8 +25,8 @@ function interleaveLyrics(lyricsPt, lyricsEn) {
             if (isLastLineEmpty) {
                 interleavedLyrics.push(""); // Adicione uma linha em branco entre as linhas da letra.
             }
-            interleavedLyrics.push(ptLine + "");
-            interleavedLyrics.push(enLine + " \n"); // Adicione um espaço e uma quebra de linha.
+            interleavedLyrics.push(ptLine + "\r");
+            interleavedLyrics.push(" " + "\r" + enLine); // Adicione um espaço e uma quebra de linha.
             isLastLineEmpty = false;
         } else {
             isLastLineEmpty = true;
@@ -40,8 +38,8 @@ function interleaveLyrics(lyricsPt, lyricsEn) {
 document.getElementById("interleaveButton").addEventListener("click", function() {
     const portugueseText = document.getElementById("portugueseTextArea").value;
     const englishText = document.getElementById("englishTextArea").value;
-
-    const portugueseLines = portugueseText.split("\n");
+//dar quebra de linha e um espaço no inicio da linha inglesa
+    const portugueseLines = portugueseText.split("\n")
     const englishLines = englishText.split("\n");
 
     // Remova as notas musicais de cada linha antes de intercalar
@@ -58,8 +56,36 @@ document.getElementById("interleaveButton").addEventListener("click", function()
     
     // Criando um novo elemento de texto para mostrar o resultado
     const resultText = document.createElement("pre");
-    resultText.textContent = "Letra intercalada:\n\n" + interleavedText;
+    if (interleavedText === "") {
+        resultText.textContent = "Não há texto para intercalar.";
+    }
+    else
+    resultText.textContent = "intercalate:\n\n" + interleavedText;
     
     // Adicionando o elemento à div de resultados
     resultDiv.appendChild(resultText);
 });
+    //Limpar campo result
+    document.getElementById("clearButton").addEventListener("click", function () {
+        document.getElementById("result").innerHTML = "";
+    });
+    //Limpar campos input
+document.getElementById("clearButtonInput").addEventListener("click", function () {
+    document.getElementById("portugueseTextArea").value = "";
+    document.getElementById("englishTextArea").value = "";
+});
+
+    //Copiar conteudo da div result
+var copyTextareaBtn = document.getElementById('copyButton')
+
+    
+    copyTextareaBtn.addEventListener('click', function (event) {
+        const resultText = document.querySelector("#result pre"); // Selecionar o elemento de texto dentro da div
+        const textToCopy = resultText.textContent; // Obter o conteúdo do elemento de texto
+        navigator.clipboard.writeText(textToCopy).then(function () {
+            console.log('Async: Copying to lyrics was successful!');
+        }).catch(function (err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+        
+    });

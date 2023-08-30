@@ -2,22 +2,20 @@
 
 *{
     font-family: 'Roboto', sans-serif;
-    box-sizing: border-box; /*faz com que a largura e altura do elemento não sejam alteradas quando adicionamos padding e border*/
+    box-sizing: border-box;
     
     
 }
 html,
 body{
-    width: 100vw; /*100% da largura da tela*/
-    height: 100vh; /*100% da altura da tela*/
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-      background-size: 100vw 100vh  ;
-      animation: gradient 15s ease infinite;
+    width: 100vw; 
+    height: 100vh; 
+    background:  #e73c7e;
 }
 .content{
     width: 100vw;
-    height: 100vh; /*100% da altura da tela*/
-    padding:  1rem;  /*rem baseiase no tamanho da fonte do elemento pai*/
+    height: Auto;
+    padding:  1rem; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,10 +32,11 @@ h3{
     font-size: 1.5rem;
     color: #F6F8FC  ;
     margin-bottom: 1rem;
+    font-size: x-large;
 }
 .textArea{
     max-width: 70vw;
-    min-height: 30vh;
+    min-height: 60vh;
     border-radius: 10px;
     background-color: #ffffff71;
     color: #F6F8FC;
@@ -54,7 +53,11 @@ h3{
     justify-content: center;
     align-items: center;
 }
-    
+.textAreaButton{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+   justify-content: center;
+}    
 
 Button{
     background-color: #F6F8FC;
@@ -63,16 +66,48 @@ Button{
     border-radius: 10px;
     border: none;
     padding: 0.5rem 1rem;
+    margin: 1rem;
 }
-
-
+#result{
+    background-color: #ffffff71;
+    color: #F6F8FC;
+    border-radius: 10px;
+    font-size: large;
+    margin: 1rem;
+}
  /*Responsivity*/ 
-@media(max-width: 600px){
+@media(max-width: 1024px){
     .textAreaGroup{
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        max-width: 70vw;
+        max-height: 80vh;
+        justify-content: center;
+        margin: 1rem;
+    }
+    .textArea{
+        max-width: 70vw;
+        min-height: 60vh;
+        border-radius: 10px;
+        background-color: #ffffff71;
+        padding: 1rem;
+        margin:2rem 1rem;
+    } 
+    h3{font-size: 1.5rem;
+        color: #F6F8FC;
+        margin: 0;
+    }
+    Button{
+        padding: .5rem 1rem;
+        margin: 1rem;
+       max-width: 30vw;
+    }  
+    .textAreaButton{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
     }
 }
-@media screen and (max-width: 395px){
+@media(max-width: 768px){
     .textAreaGroup{
         grid-template-columns: 1fr;
         max-width: 70vw;
@@ -95,20 +130,47 @@ Button{
     Button{
         padding: .5rem 1rem;
         margin: 1rem;
+       max-width: 30vw;
     }  
+    .textAreaButton{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 395px){
+    .textAreaGroup{
+        grid-template-columns: 1fr;
+        max-width: 70vw;
+        max-height: 80vh;
+        margin: 0;
+        padding: 0;
+    }
+    .textArea{
+        max-width: 70vw;
+        max-height: 22vh;
+        border-radius: 10px;
+        background-color: #ffffff71;
+        padding: 0;
+        margin:0 ;
+    } 
+    h3{font-size: 1.5rem;
+        color: #F6F8FC;
+        margin: 0;
+    }
+    Button{
+        padding: .5rem 1rem;
+        margin: 1rem;
+       width: 30vw;
+    }  
+    .textAreaButton{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
 }
 
 
 
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+
